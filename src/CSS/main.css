@@ -2,3 +2,19 @@
     color: #ffffff;
     text-decoration: none;
 }
+
+.footer{
+    background-color: #212529;
+    margin: 10px auto;
+    padding-top: 10px;
+    position: relative;
+    bottom: 6px;
+    width: 100%;
+    color: white;
+}
+
+.image{
+    width: 112rem;
+    height: 54rem;
+    object-fit: cover;
+}

@@ -1,9 +1,12 @@
 import React from 'react'
+import '../../CSS/main.css'
 
 function Home() {
+  document.title = "Guntur Spicy Kitchen"
   return (
+      
     <div>
-        <h1>Home</h1>
+        <img className='image' src='images/HomePage.jpg' />
     </div>
    
   )

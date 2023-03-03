@@ -2,27 +2,78 @@ import {useState} from 'react'
 import React from 'react'
 import Menu from './Menu'
 import MENU from '../../data/menu.js'
-import DishDetail from './DishDetail'
+
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
+import Home from './Home'
+import AboutPage from './AboutPage'
+import Contact from './Contact'
+import Header from '../header/Header'
+import Footer from '../footer/Footer'
 
 
-function Body() {
-  const[menuData, setMenuData] = useState(MENU)
-  //const[selectedDist, setSelectedDist] = null
-  
-  let dishDetails = null;
-  const setSelectedDish = (Dish ) =>{
-    console.log('Dish' , {Dish})
-    //selectedDist= menuData(Dish)
-    dishDetails = <DishDetail dish = {Dish}/>
-  }
+function Body({menuData, handleClick, selectedDish, showDialog , handleClose }) {
+ 
 
   return (
-   
-    <div className="bodyContainer">
-        <Menu menuData = {menuData} 
-        handleClick = {setSelectedDish}
-        />
-    </div>
+    
+    <Router>
+        <Routes>
+          
+          <Route exact path='/menu' element = {
+              <>
+                <Header />
+                
+                <div className="bodyContainer">
+                    <Menu menuData = {menuData} 
+                    handleClick={handleClick}
+                    selectedDish = {selectedDish}
+                    showDialog={showDialog}
+                    handleClose={handleClose}
+                    />
+                </div>
+                <Footer />
+              </>
+            }>
+          </Route>
+
+          <Route path='/' element = {
+               <>
+                <Header />
+                <Home/>
+                <Footer />
+              
+               </> 
+                
+              }>
+
+          </Route>
+          <Route path='/about' element = {
+               <>
+                <Header />
+                <AboutPage/>
+                <Footer />
+              
+               </> 
+                
+              }>
+
+          </Route>
+          <Route path='/contact' element = {
+               <>
+                <Header />
+                <Contact/>
+                <Footer />
+              
+               </> 
+                
+              }>
+
+          </Route>
+
+          
+      </Routes>
+    </Router>
+
    
   )
 }
