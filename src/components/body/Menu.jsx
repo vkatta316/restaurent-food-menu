@@ -3,6 +3,7 @@ import { useState } from 'react'
 import DishDetail from './DishDetail.jsx';
 import MenuItem from './MenuItem.jsx'
 import { Container, Row , Modal, Button} from 'react-bootstrap';
+import '../../CSS/main.css'
 
 function Menu({ menuData, handleClick, selectedDish, showDialog , handleClose}) {
 

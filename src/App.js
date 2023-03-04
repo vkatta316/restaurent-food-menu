@@ -1,5 +1,5 @@
 import React from 'react'
-import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Header from './components/header/Header'
 import Footer from './components/footer/Footer'
 
@@ -8,91 +8,121 @@ import Body from './components/body/Body'
 import AboutPage from './components/body/AboutPage'
 import Home from './components/body/Home'
 import Contact from './components/body/Contact'
-import {useState} from 'react'
+import { useState } from 'react'
 import MENU from '../src/data/menu.js'
+
+
+import FeedbackData from '../src/components/feedback/data/FeedbackData'
+import FeedbackList from './components/feedback/FeedbackList'
+import FeedbackStats from './components/feedback/FeedbackStats'
+import FeedbackForm from './components/feedback/FeedbackForm'
+import { FeedbackProvider } from './components/feedback/context/FeedbackContext'
+
+
 
 
 function App() {
 
-  const[menuData, setMenuData] = useState(MENU)
-  const[selectDish, setSelectDish] = useState({})
+  const [menuData, setMenuData] = useState(MENU)
+  const [selectDish, setSelectDish] = useState({})
   const [show, setShow] = useState(false);
 
-  //let dishDetails = null;
-  const handleSelectedDish = (Dish ) =>{
-    console.log('Dish' , {Dish})
+
+  const handleSelectedDish = (Dish) => {
+    console.log('Dish', { Dish })
     setSelectDish(Dish)
     setShow(true);
-    //selectedDist= menuData(Dish)
-    //dishDetails = <DishDetail dish = {Dish}/>
+
   }
+
 
   const handleClose = () => setShow(false);
 
   return (
+    <FeedbackProvider>
+      <>
+        <Router>
+          <Routes>
 
-    <div className="bodyContainer">
-        <Body menuData = {menuData} 
-        handleClick={handleSelectedDish}
-        selectedDish = {selectDish}
-        showDialog={show}
-        handleClose={handleClose}
-        />
-    </div>
-   /*  <Router>
-        <Routes>
-          
-          <Route exact path='/menu' element = {
+            <Route exact path='/menu' element={
               <>
                 <Header />
-                <Body/>
+                <div className="bodyContainer">
+                  <Body menuData={menuData}
+                    handleClick={handleSelectedDish}
+                    selectedDish={selectDish}
+                    showDialog={show}
+                    handleClose={handleClose}
+                  />
+                </div>
+              </>
+
+            }>
+
+            </Route>
+
+            <Route path='/feedback/*' element={
+              <>
+                <Header />
+                <div className="container">
+                  <FeedbackForm />
+                  <FeedbackStats />
+                  <FeedbackList  />
+                </div>
                 <Footer />
               </>
             }>
-          </Route>
-            
-       
-          <Route path='/' element = {
-               <>
+
+            </Route>
+
+
+
+
+
+            <Route path='/' element={
+              <>
                 <Header />
-                <Home/>
+                <Home />
                 <Footer />
-              
-               </> 
-                
-              }>
 
-          </Route>
+              </>
 
-          <Route path='/about' element = {
-               <>
+            }>
+
+            </Route>
+
+            <Route path='/about' element={
+              <>
                 <Header />
-                <AboutPage/>
+                <AboutPage />
                 <Footer />
-              
-               </> 
-                
-              }>
 
-          </Route>
+              </>
 
-          <Route path='/contact' element = {
-               <>
+            }>
+
+            </Route>
+
+            <Route path='/contact' element={
+              <>
                 <Header />
-                <Contact/>
+                <Contact />
                 <Footer />
-              
-               </> 
-                
-              }>
 
-          </Route>
-          
-         
-        </Routes>
-        
-    </Router> */
-    
+              </>
+
+            }>
+
+            </Route>
+
+          </Routes>
+
+        </Router>
+      </>
+    </FeedbackProvider>
+
+
+
   )
 }
 

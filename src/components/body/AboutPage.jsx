@@ -1,5 +1,6 @@
 import React from 'react'
 import { Container } from 'react-bootstrap'
+import '../../CSS/main.css'
 
 function AboutPage() {
   document.title = "About Page"
