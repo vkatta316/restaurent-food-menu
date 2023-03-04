@@ -25,6 +25,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  
 }
 
 body {
@@ -38,10 +39,10 @@ ul {
   list-style: none;
 }
 
-.container {
-  max-width: 768px;
-  margin: auto;
+.bodyContainer{
   padding: 0 20px;
+  background-color: #202142;
+  color: #fff;
 }
 
 header {
@@ -140,7 +141,7 @@ input:focus {
 }
 
 .feedback-stats {
-  color:  #212529;
+  color:  #acb2b9;
   display: flex;
   justify-content: space-between;
   align-items: center;

@@ -10,7 +10,7 @@ import Home from './components/body/Home'
 import Contact from './components/body/Contact'
 import { useState } from 'react'
 import MENU from '../src/data/menu.js'
-
+import '../src/CSS/main.css'
 
 import FeedbackData from '../src/components/feedback/data/FeedbackData'
 import FeedbackList from './components/feedback/FeedbackList'
@@ -47,7 +47,7 @@ function App() {
             <Route exact path='/menu' element={
               <>
                 <Header />
-                <div className="bodyContainer">
+                <div className="bodyContainer" >
                   <Body menuData={menuData}
                     handleClick={handleSelectedDish}
                     selectedDish={selectDish}
@@ -55,6 +55,7 @@ function App() {
                     handleClose={handleClose}
                   />
                 </div>
+                <Footer />
               </>
 
             }>
@@ -106,7 +107,10 @@ function App() {
             <Route path='/contact' element={
               <>
                 <Header />
+                <div className="bodyContainer" >
                 <Contact />
+                </div>
+                
                 <Footer />
 
               </>

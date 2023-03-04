@@ -78,7 +78,7 @@ function Contact() {
     return (
         <div>
             <>
-                <Container>
+                <Container >
                     <h1>Send Us Your Feedback</h1>
                     <Form onSubmit={handleSubmit}>
                         <Row className="mb-3">
@@ -101,6 +101,9 @@ function Contact() {
                                 <Form.Control type="email" name="email" placeholder="example@gmail.com" onChange={handleInputChange} />
                             </Form.Group>
                         </Row>
+                        <Form.Group className="mb-3" id="formGridCheckbox">
+                            <Form.Check type='checkbox' label="Do you want to receive notifications and emails ?" name="contactFlag" onChange={handleInputChange} />
+                        </Form.Group>
 
                         <Card>
                             {/* <form onSubmit={handleSubmit}> */}
@@ -125,9 +128,7 @@ function Contact() {
 
 
 
-                        <Form.Group className="mb-3" id="formGridCheckbox">
-                            <Form.Check type='checkbox' label="May we contact you" name="contactFlag" onChange={handleInputChange} />
-                        </Form.Group>
+                        
                        {/*  <Button onClick= {handlePrimarySubmit} type="submit" variant="dark">Submit</Button> */}
                     </Form>
                 </Container>

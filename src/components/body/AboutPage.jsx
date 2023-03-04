@@ -5,7 +5,7 @@ import '../../CSS/main.css'
 function AboutPage() {
   document.title = "About Page"
   return (
-    <div>
+    <div className='bodyContainer'>
 
       <>
         <Container>
