@@ -10,11 +10,12 @@ import Button from '../feedback/shared/Button'
 
 function Contact() {
 
-    const [state, setState] = useState({ firstName: "", lastName: "", mobileNumber: "", email: "", message: "", contactFlag: "" })
+    const [state, setState] = useState({ firstName: "", lastName: "", mobileNumber: "", email: "", contactFlag: "" })
 
     const handleInputChange = (e) => {
         console.log({ [e.target.name]: e.target.value })
         setState({ ...state, [e.target.name]: e.target.value })
+        console.log(state)
     }
 
     const [text, setText] = useState('')
@@ -110,7 +111,7 @@ function Contact() {
                                 <h2>How would you rate our restaurant ?</h2>
                                 <RatingSelect select={(rating) => setRating(rating)} />
                                 <div className='input-group'>
-                                    <input onChange={handleInputText} type="text" placeholder='Write a Review' value={text} />
+                                    <input onChange={handleInputText} type="text" placeholder='Write a Review' name ="message" value={text} />
                                     <Button type='submit' isDisabled={btnDisabled}>
                                         Send</Button>
                                 </div>
